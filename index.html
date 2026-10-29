@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Creation By Jhen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home">Sweet Creation <span>By Jhen</span></a>
+    <button id="menuToggle" class="menu-toggle">☰</button>
+    <nav id="navbar" class="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+      <a href="#login" id="loginNav">Login</a>
+      <a href="#register" id="registerNav">Register</a>
+      <a href="#dashboard" id="dashboardNav" hidden>Dashboard</a>
+      <a href="#cart" id="cartNav" hidden>Cart (<span id="cartCount">0</span>)</a>
+      <button id="logoutBtn" class="nav-logout" hidden>Logout</button></nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div>
+        <p class="eyebrow">BAKED WITH LOVE</p>
+        <h1>Sweet Creation<br><span>By Jhen</span></h1>
+        <h2>Every Cake Tells a Sweet Story</h2>
+        <p>Make every celebration sweeter with our beautiful cakes made with love.</p>
+        <a class="btn" href="#products">Explore Our Cakes</a>
+      </div>
+      <img class="hero-img" src="birth.jpg" alt="Birthday cake">
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">OUR STORY</p>
+        <h2>About <span>Sweet Creation</span></h2>
+      </div>
+      <p class="center-text">
+        Welcome to Sweet Creation By Jhen! We make cakes for birthdays,
+        anniversaries, family gatherings, and other special occasions.
+        Every cake is a chance to make a sweet memory.
+      </p>
+    </section>
+
+    <section id="products" class="section products-section">
+      <div class="section-heading">
+        <p class="eyebrow">MADE WITH LOVE</p>
+        <h2>Our Sweet <span>Creations</span></h2>
+        <p>Choose your favorite cake.</p>
+      </div>
+      <input id="productSearch" class="search-input"
+        type="search" placeholder="Search cakes..." aria-label="Search cakes">
+      <div id="productGrid" class="cake-grid"></div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h2>Contact <span>Us</span></h2>
+      </div>
+      <div class="contact-card">
+        <p><strong>Business:</strong> Sweet Creation By Jhen</p>
+        <p><strong>Location:</strong> Gabay 1, Margosatubig, Zamboanga del Sur</p>
+        <p><strong>Phone:</strong> 0945 706 8519</p>
+      </div>
+    </section>
+
+    <section id="login" class="section app-section" hidden>
+      <div class="form-card">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h2>Login to Your Account</h2>
+        <form id="loginForm">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" required placeholder="Enter email">
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" required placeholder="Enter password">
+          <button class="btn full-btn" type="submit">Login</button>
+          <p class="small-text">No account yet? <a href="#register">Register here</a></p>
+        </form>
+        <p class="demo-note">
+          
+        </p>
+      </div>
+    </section>
+
+    <section id="register" class="section app-section" hidden>
+      <div class="form-card">
+        <p class="eyebrow">JOIN OUR SWEET COMMUNITY</p>
+        <h2>Create Customer Account</h2>
+        <form id="registerForm">
+          <label for="registerName">Full Name</label>
+          <input id="registerName" required placeholder="Enter full name">
+          <label for="registerEmail">Email</label>
+          <input id="registerEmail" type="email" required placeholder="Enter email">
+          <label for="registerPassword">Password</label>
+          <input id="registerPassword" type="password" minlength="6" required
+            placeholder="At least 6 characters">
+          <button class="btn full-btn" type="submit">Create Account</button>
+          <p class="small-text">Already registered? <a href="#login">Login here</a></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section app-section" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">YOUR ACCOUNT</p>
+        <h2 id="dashboardTitle">Dashboard</h2>
+        <p id="welcomeText"></p>
+      </div>
+
+      <div id="userDashboard" hidden>
+        <div class="stats-grid">
+          <div class="stat-card"><span>My Orders</span><strong id="userOrderCount">0</strong></div>
+          <div class="stat-card"><span>Cart Items</span><strong id="userCartCount">0</strong></div>
+        </div>
+        <h3 class="subheading">My Orders</h3>
+        <div id="userOrders"></div>
+        <a class="btn" href="#products">Shop for Cakes</a>
+      </div>
+
+      <div id="adminDashboard" hidden>
+        <div class="stats-grid">
+          <div class="stat-card"><span>Products</span><strong id="adminProductCount">0</strong></div>
+          <div class="stat-card"><span>Customers</span><strong id="adminUserCount">0</strong></div>
+          <div class="stat-card"><span>Orders</span><strong id="adminOrderCount">0</strong></div>
+        </div>
+
+        <div class="admin-panel">
+          <h3>Add a Product</h3>
+          <form id="productForm">
+            <label for="newProductName">Cake Name</label>
+            <input id="newProductName" required placeholder="Example: Vanilla Cake">
+            <label for="newProductPrice">Price (₱)</label>
+            <input id="newProductPrice" type="number" min="1" step="0.01" required>
+            <label for="newProductImage">Image filename</label>
+            <input id="newProductImage" placeholder="cake1.jpg" required>
+            <label for="newProductDescription">Description</label>
+            <textarea id="newProductDescription" rows="2" required></textarea>
+            <button class="btn" type="submit">Add Product</button>
+          </form>
+        </div>
+
+        <h3 class="subheading">Manage Products</h3>
+        <div id="adminProducts"></div>
+        <h3 class="subheading">Manage Orders</h3>
+        <div id="adminOrders"></div>
+        <h3 class="subheading">Registered Customers</h3>
+        <div id="adminUsers"></div>
+      </div>
+    </section>
+
+    <section id="cart" class="section app-section" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">READY TO ORDER?</p>
+        <h2>Your <span>Shopping Cart</span></h2>
+      </div>
+      <div id="cartItems"></div>
+      <div class="cart-summary">
+        <h3>Total: <span id="cartTotal">₱0.00</span></h3>
+        <button id="checkoutBtn" class="btn">Place Order</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="footer-logo" href="#home">Sweet Creation By Jhen</a>
+    <p>Every Cake Tells a Sweet Story.</p>
+    <p>Gabay 1, Margosatubig, Zamboanga del Sur</p>
+    <p>Phone: 0945 706 8519</p>
+    <p class="copyright">© 2026 Sweet Creation By Jhen. All rights reserved.</p>
+    <p class="developer">Website developed by Ryan M. Ello</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
